@@ -42,7 +42,7 @@ function RootNavigator() {
     <Stack.Navigator>
       <Stack.Screen name="Root" component={HomeNavigator} options={{ headerShown: false }} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
-      <Stack.Screen name="NewTweet" component={NewTweetScreen} />
+      <Stack.Screen name="NewTweet" component={NewTweetScreen} options={{ headerShown: false}} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="UserProfile" component={ModalScreen} />
       </Stack.Group>
