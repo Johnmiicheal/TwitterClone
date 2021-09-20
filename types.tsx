@@ -15,7 +15,7 @@ declare global {
 
 export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
-  Modal: undefined;
+  UserProfile: undefined;
   NotFound: undefined;
 };
 
@@ -25,11 +25,31 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> = Nati
 >;
 
 export type RootTabParamList = {
-  TabOne: undefined;
-  TabTwo: undefined;
+  Home: undefined;
+  Search: undefined;
+  Notification: undefined;
+  Message: undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> = CompositeScreenProps<
   BottomTabScreenProps<RootTabParamList, Screen>,
   NativeStackScreenProps<RootStackParamList>
 >;
+
+export type UserType = {
+  id: string,
+  name: string,
+  username: string,
+  image?: string,
+}
+
+export type TweetType = {
+  user: UserType,
+  id: string,
+  createdAt: string,
+  content: string,
+  image?: string,
+  numberOfComments?: number,
+  numberOfRetweets?: number,
+  numberOfLikes?: number,
+}
