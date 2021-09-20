@@ -5,6 +5,7 @@ import { Text, View } from '../components/Themed';
 import Tweet from '../components/Tweet';
 import { RootTabScreenProps } from '../types';
 import Feed from '../components/Feed';
+import NewTweetButton from '../components/NewTweetButton';
 
 import tweets from '../data/tweets';
 
@@ -12,6 +13,7 @@ export default function HomeScreen({ navigation }: RootTabScreenProps<'Home'>) {
   return (
     <View style={styles.container}>
      <Feed />
+     <NewTweetButton />
     </View>
   );
 }

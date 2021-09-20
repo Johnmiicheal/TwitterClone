@@ -19,6 +19,7 @@ import HomeScreen from '../screens/HomeScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
+import NewTweetScreen from '../screens/NewTweetScreen';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -41,6 +42,7 @@ function RootNavigator() {
     <Stack.Navigator>
       <Stack.Screen name="Root" component={HomeNavigator} options={{ headerShown: false }} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
+      <Stack.Screen name="NewTweet" component={NewTweetScreen} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="UserProfile" component={ModalScreen} />
       </Stack.Group>
