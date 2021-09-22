@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { StyleSheet, SafeAreaView, View, Text, TextInput } from "react-native";
 
 import Feed from "../components/Feed";
@@ -9,9 +9,13 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import ProfilePicture from "../components/ProfilePicture";
 
 export default function NewTweetScreen() {
+  const [tweet, setTweet] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+
   const onPostTweet = () => {
-    console.warn("Post Tweet");
-  };
+    console.log(`Posting the tweet: ${tweet}
+    Image: ${imageUrl}`);
+  }
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.headerContainer}>
@@ -32,12 +36,19 @@ export default function NewTweetScreen() {
         />
         <View style={styles.inputContainer}>
           <TextInput
+            value={tweet}
+            onChangeText={(value) => setTweet(value)}
             numberOfLines={3}
             multiline={true}
-            style={styles.tweetContainer}
+            style={styles.tweetInput}
             placeholder={"What's Happening?"}
           />
-          <TextInput style={styles.imageInput} placeholder={"Image URL"} />
+          <TextInput
+            style={styles.imageInput}
+            value={imageUrl}
+            onChangeText={(value) => setImageUrl(value)}
+            placeholder={"Image URL"}
+          />
         </View>
       </View>
     </SafeAreaView>
@@ -69,15 +80,17 @@ const styles = StyleSheet.create({
   },
   newTweetContainer: {
     flexDirection: "row",
-    padding: 15,
+    paddingHorizontal: 10,
+
   },
   inputContainer: {
     marginLeft: 10,
   },
-  tweetContainer: {
+  tweetInput: {
     height: 100,
     maxHeight: 300,
     fontSize: 18,
+    bottom: 35,
   },
   imageInput: {},
 });
